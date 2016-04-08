@@ -1,0 +1,2 @@
+scanner£º 
+react-native-barcodescanner
