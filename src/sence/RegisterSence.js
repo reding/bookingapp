@@ -5,7 +5,7 @@ import React, {
   View
 } from 'react-native';
 
-export default class MainSence extends Component {
+export default class RegisterSence extends Component {
   render() {
     return (
       <View style={styles.container}>

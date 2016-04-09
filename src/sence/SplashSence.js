@@ -1,43 +1,49 @@
 import React, {
+  AsyncStorage,
   Component,
   StyleSheet,
   Text,
-  View,
-  TouchableOpacity
+  View
 } from 'react-native';
 
 
 import WelcomeSence from './WelcomeSence';
-import MainSence from './MainSence';
+import MainSence from './RegisterSence';
+
+var USER_STORAGE_KEY = '@AsyncStorageBooking:userkey';
 
 export default class SplashSence extends Component {
-
-
-
-    _pressButton(){
-
-      // if this is the first launch; go to welcome sence, then the profile sence, otherwise go to the mainsence
-       
-
-      const { navigator } = this.props;
-        if(navigator) {
-            navigator.push({
-                name: 'WelcomeSence',
-                component: WelcomeSence,
-            });
-        }
-    }
-
+  
+  componentWillMount(){
+      AsyncStorage.getItem(USER_STORAGE_KEY)
+          .then((value) => {
+            if (value !== null){
+              var navigator = this.props.navigator;
+              setTimeout(() => {
+                  navigator.replace({
+                      id: 'WelcomeSence',
+                  });
+              }, 2000);
+            } else {
+              var navigator = this.props.navigator;
+              setTimeout(() => {
+                  navigator.replace({
+                      id: 'ProfileSence',
+                  });
+              }, 2000);
+            }
+          })
+          .catch((error) => this._appendMessage('AsyncStorage error: ' + error.message))
+          .done();
+  }
   render() {
-      return (
-      <View style={styles.container}>
-      <TouchableOpacity onPress={this._pressButton.bind(this)}>
-        <Text style={styles.welcome}>
-          SplashSence!!!
-        </Text>
-        </TouchableOpacity>
-      </View>
-    );
+        return (
+       		<View style={styles.container}>
+        			<Text style={styles.welcome}>
+          				SplashSence!!!
+        			</Text>
+      		</View>
+    	);
   }
 }
 

@@ -9,8 +9,13 @@ export default class ProfileSence extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <TextInput
+    		style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+    		onChangeText={(text) => this.setState({text})}
+    		value={this.state.text}
+  		/>
         <Text style={styles.welcome}>
-          ProfileSence!!!
+            ProfileSence!!!
         </Text>
       </View>
     );
