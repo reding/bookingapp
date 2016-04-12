@@ -3,7 +3,8 @@ import React, {
   Component,
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
 } from 'react-native';
 
 
@@ -28,7 +29,7 @@ export default class SplashSence extends Component {
               var navigator = this.props.navigator;
               setTimeout(() => {
                   navigator.replace({
-                      id: 'ProfileSence',
+                      id: 'WelcomeSence',
                   });
               }, 2000);
             }
@@ -38,11 +39,7 @@ export default class SplashSence extends Component {
   }
   render() {
         return (
-       		<View style={styles.container}>
-        			<Text style={styles.welcome}>
-          				SplashSence!!!
-        			</Text>
-      		</View>
+       		<Image source={require('./img/splash_bg.png')}/>
     	);
   }
 }
