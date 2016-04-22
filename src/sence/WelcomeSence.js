@@ -4,18 +4,23 @@ import React, {
     StyleSheet,
     Text,
     View,
-    Image
+    Image,
+    TouchableHighlight
 } from 'react-native';
 import ViewUtils from  '../utils/ViewUtils';
 import SwipeableViews from 'react-swipeable-views/lib/index.native.animated';
 
 export default class WelcomeSence extends Component {
-    _onMomentumScrollEnd(e, state, context) {
+
+    goNext(){
         var navigator = this.props.navigator;
-        navigator.replace({
-            id: 'RegisterSence',
-        });
+        setTimeout(() => {
+            navigator.replace({
+                id: 'MainSence',
+            });
+        }, 100);
     }
+
   render() {
       return (
           <SwipeableViews style={styles.slideContainer}>
@@ -30,9 +35,9 @@ export default class WelcomeSence extends Component {
                   </Text>
               </View>
               <View style={[styles.slide, styles.slide3]}>
-                  <Text style={styles.text}>
-                      slide n°3
-                  </Text>
+                  <TouchableHighlight underlayColor="#fff" style={styles.btn} onPress={this.goNext()}>
+                      <Text style={{color:'#fff'}}>设置</Text>
+                  </TouchableHighlight>
               </View>
           </SwipeableViews>
       )
@@ -65,5 +70,14 @@ var styles = StyleSheet.create({
     text: {
         color: '#fff',
         fontSize: 16
+    },
+    btn:{
+        marginTop:10,
+        width:80,
+        height:35,
+        backgroundColor:'#3BC1FF',
+        justifyContent:'center',
+        alignItems:'center',
+        borderRadius: 4,
     }
 });

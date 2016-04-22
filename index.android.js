@@ -16,6 +16,7 @@ import SplashSence from './src/sence/SplashSence';
 import WelcomeSence from './src/sence/WelcomeSence';
 import ProfileSence from './src/sence/ProfileSence';
 import RegisterSence from './src/sence/RegisterSence';
+import MainSence from './src/sence/MainSence';
 
 export default class onlinebooking extends React.Component {
     render() {
@@ -56,6 +57,12 @@ export default class onlinebooking extends React.Component {
             return (
                 <RegisterSence
                 navigator={navigator} />
+            );
+        }
+        if (routeId === 'MainSence') {
+            return (
+                <MainSence
+                    navigator={navigator} />
             );
         }
         return this.noRoute(navigator);
