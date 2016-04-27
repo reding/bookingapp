@@ -10,7 +10,7 @@ export default class RegisterSence extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          MainSence!!!
+          RegisterSence!!!
         </Text>
       </View>
     );

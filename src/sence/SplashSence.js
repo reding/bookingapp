@@ -1,9 +1,5 @@
-import React, {
-  AsyncStorage,
+import React,{
   Component,
-  StyleSheet,
-  Text,
-  View,
   Image,
 } from 'react-native';
 
@@ -34,7 +30,6 @@ global.userKey = USER_STORAGE_KEY;
 export default class SplashSence extends Component {
   
   componentWillMount(){
-
       storage.load({
           key:USER_STORAGE_KEY,
           autoSync:false
@@ -80,17 +75,3 @@ export default class SplashSence extends Component {
     	);
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
-  }
-});
