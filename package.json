@@ -9,6 +9,7 @@
     "react": "^0.14.8",
     "react-native": "^0.23.0",
     "react-native-barcodescanner": "^1.0.1",
+    "react-native-page-swiper": "^0.1.0",
     "react-native-swiper": "^1.4.3"
   }
 }

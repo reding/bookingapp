@@ -1,27 +1,24 @@
-var Swiper = require('react-native-swiper');
 
-var React = require('react-native');
-var {
+import Swiper from 'react-native-page-swiper';
+
+import React, {
     Component,
     StyleSheet,
     Text,
     View,
     TouchableHighlight,
-} = React;
+} from 'react-native';
 
 export default class WelcomeSence extends Component {
     _onMomentumScrollEnd() {
         var navigator = this.props.navigator;
         navigator.replace({
-            id: 'RegisterSence',
+            id: 'ProfileSence',
         });
     }
     render() {
       return(
-          <Swiper style={styles.wrapper} showsButtons={false}
-                  showsPagination={false}
-                  onMomentumScrollEnd={this._onMomentumScrollEnd}
-                  autoplay={false}>
+          <Swiper style={styles.wrapper} >
               <View style={styles.slide1}>
                   <Text style={styles.text}>booking</Text>
               </View>
@@ -29,12 +26,9 @@ export default class WelcomeSence extends Component {
                   <Text style={styles.text}>rating</Text>
               </View>
               <View style={styles.slide3}>
-                  <Text style={styles.text}>and enjoy!</Text>
-                  <View>
-                      <TouchableHighlight underlayColor="#fff" style={styles.btn} onPress={this._onMomentumScrollEnd.bind(this)}>
-                          <Text style={styles.text}>start</Text>
-                      </TouchableHighlight>
-                  </View>
+                  <TouchableHighlight underlayColor="#fff" style={styles.btn} onPress={this._onMomentumScrollEnd.bind(this)}>
+                      <Text style={styles.text}>start</Text>
+                  </TouchableHighlight>
               </View>
           </Swiper>
       )

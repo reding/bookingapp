@@ -1,18 +1,30 @@
 import React, {
-  Component,
-  StyleSheet,
-  Text,
-  View
+    Component,
+    StyleSheet,
+    Alert,
 } from 'react-native';
+import BarcodeScanner from 'react-native-barcodescanner';
 
 export default class RegisterSence extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            torchMode: 'off',
+            cameraType: 'back',
+            cameraOpen: false
+        };
+    }
+    _barcodeReceived(e) {
+        Alert.alert("Title","barcode: "+e.data);
+    }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          RegisterSence!!!
-        </Text>
-      </View>
+        <BarcodeScanner
+            onBarCodeRead={this._barcodeReceived}
+            style={{ flex: 1 }}
+            torchMode={this.state.torchMode}
+            cameraType={this.state.cameraType}
+        />
     );
   }
 }
