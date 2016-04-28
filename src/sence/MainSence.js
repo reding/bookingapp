@@ -2,34 +2,77 @@
  * Created by redin on 2016/4/12.
  */
 import React, {
-    Component,
     StyleSheet,
     Text,
-    View
-} from 'react-native';
+    View,
+    ScrollView,
+    Component,
+}from 'react-native';
+
+import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
+import HeaderView from '../view/HeaderView';
 
 export default class MainSence extends Component {
+
     render() {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    MainSence!!!
-                </Text>
-            </View>
-        );
+        return <View style={styles.container}>
+            <HeaderView />
+            <ScrollableTabView initialPage={0} renderTabBar={() => <ScrollableTabBar />}>
+                <ScrollView tabLabel="ios-paper" style={styles.tabView}>
+                    <View style={styles.card}>
+                        <Text>Friends</Text>
+                    </View>
+                </ScrollView>
+                <ScrollView tabLabel="person-stalker" style={styles.tabView}>
+                    <View style={styles.card}>
+                        <Text>Friends</Text>
+                    </View>
+                </ScrollView>
+                <ScrollView tabLabel="ios-chatboxes" style={styles.tabView}>
+                    <View style={styles.card}>
+                        <Text>Messenger</Text>
+                    </View>
+                </ScrollView>
+                <ScrollView tabLabel="ios-world" style={styles.tabView}>
+                    <View style={styles.card}>
+                        <Text>Notifications</Text>
+                    </View>
+                </ScrollView>
+                <ScrollView tabLabel="navicon-round" style={styles.tabView}>
+                    <View style={styles.card}>
+                        <Text>Other nav</Text>
+                    </View>
+                </ScrollView>
+            </ScrollableTabView>
+        </View>;
     }
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        marginTop: 30
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+    tabView: {
+        flex: 1,
+        padding: 10,
+        backgroundColor: 'rgba(0,0,0,0.01)'
     },
+    card: {
+        borderWidth: 1,
+        backgroundColor: '#fff',
+        borderColor: 'rgba(0,0,0,0.1)',
+        margin: 5,
+        height: 150,
+        padding: 15,
+        shadowColor: '#ccc',
+        shadowOffset: { width: 2, height: 2 },
+        shadowOpacity: 0.5,
+        shadowRadius: 3
+    },
+    icon: {
+        width: 300,
+        height: 300,
+        alignSelf: 'center'
+    }
 });
