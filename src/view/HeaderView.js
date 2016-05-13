@@ -29,9 +29,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',   // 水平排布  
         paddingLeft: 10,
         paddingRight: 10,
-        paddingTop:  10,
-        paddingBottom:  10,
-        height: 30,
+        paddingTop:  0,
+        height: 48,
         alignItems: 'center'  // 使元素垂直居中排布, 当flexDirection为column时, 为水平居中  
     },
     logo: {
@@ -47,6 +46,7 @@ const styles = StyleSheet.create({
     title: {
         height: 30,
         flex: 1,  // 类似于android中的layout_weight,设置为1即自动拉伸填充
-        textAlign: 'center'
+        textAlign: 'center',
+        fontSize:20
     }
 });  
